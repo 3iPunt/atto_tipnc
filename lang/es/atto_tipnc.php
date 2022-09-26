@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'atto_tipnc', language 'en'.
+ * Strings for component 'atto_tipnc', language 'es'.
  *
  * @package     atto_tipnc
  * @copyright   2022 Tresipunt - Antonio Manzano <contacte@tresipunt.com>

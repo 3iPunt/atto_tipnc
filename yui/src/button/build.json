@@ -1,0 +1,10 @@
+{
+  "name": "moodle-atto_tipnc-button",
+  "builds": {
+    "moodle-atto_tipnc-button": {
+      "jsfiles": [
+        "button.js"
+      ]
+    }
+  }
+}

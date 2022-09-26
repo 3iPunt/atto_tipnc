@@ -15,16 +15,26 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'atto_tipnc', language 'en'.
+ * Plugin capabilities
  *
- * @package     atto_tipnc
- * @copyright   2022 Tresipunt - Antonio Manzano <contacte@tresipunt.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    atto_tipnc
+ * @copyright  2022 Tresipunt - Antonio Manzano <contacte@tresipunt.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Atto iFrame NextCloud';
-$string['settings'] = 'Configuration';
+defined('MOODLE_INTERNAL') || die();
 
-$string['dialogtitle'] = 'Incrustar archivo NextCloud en iFrame';
-$string['enterflavor'] = 'URL archivo NextCloud';
-$string['insert'] = 'Incrustar';
+$capabilities = array(
+
+    'atto/tipnc:visible' => array(
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_COURSE,
+        'archetypes' => array(
+            'coursecreator' => CAP_ALLOW,
+            'teacher' => CAP_ALLOW,
+            'editingteacher' => CAP_ALLOW,
+            'student' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        )
+    )
+);

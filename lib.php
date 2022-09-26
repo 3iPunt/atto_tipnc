@@ -24,6 +24,35 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Return the js params required for this module.
+ * @return array of additional params to pass to javascript init function for this module.
+ */
+function atto_tipnc_params_for_js($elementid, $options, $fpoptions) {
+    global $USER, $COURSE;
+    //coursecontext
+    $coursecontext=context_course::instance($COURSE->id);
 
+    //usercontextid
+    $usercontextid=context_user::instance($USER->id)->id;
+    $disabled=false;
+
+    //config our array of data
+    $params = array();
+    $params['usercontextid'] = $usercontextid;
+
+    //If they don't have permission don't show it
+    if(!has_capability('atto/tipnc:visible', $coursecontext) ){
+        $disabled=true;
+    }
+
+    //add our disabled param
+    $params['disabled'] = $disabled;
+
+    //add our default flavor
+    $params['defaultflavor'] = get_config('atto_tipnc','defaultflavor');
+
+    return $params;
+}
 
 
