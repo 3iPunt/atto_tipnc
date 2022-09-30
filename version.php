@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2022093002;
+$plugin->version   = 2022093003;
 $plugin->release = '0.0.1';
 $plugin->requires  = 2020110300;
 $plugin->component = 'atto_tipnc';
