@@ -34,26 +34,34 @@ YUI.add('moodle-atto_tipnc-button', function (Y, NAME) {
  */
 
 var COMPONENTNAME = 'atto_tipnc';
-var FLAVORCONTROL = 'tipnc_flavor';
+var URLCONTROL = 'tipnc_url';
+var SIZECONTROL = 'tipnc_size';
 var LOGNAME = 'atto_tipnc';
 
 var CSS = {
         INPUTSUBMIT: 'atto_media_urlentrysubmit',
         INPUTCANCEL: 'atto_media_urlentrycancel',
-        FLAVORCONTROL: 'flavorcontrol'
+        URLCONTROL: 'urlcontrol',
+        SIZECONTROL: 'sizecontrol'
     },
     SELECTORS = {
-        FLAVORCONTROL: '.flavorcontrol'
+        URLCONTROL: '.urlcontrol',
+        SIZECONTROL: '.sizecontrol'
     };
 
 var TEMPLATE_FORM = '' +
     '<form class="atto_form">' +
-    '<div id="{{elementid}}_{{innerform}}" class="mdl-align">' +
-    '<label for="{{elementid}}_{{FLAVORCONTROL}}">{{get_string "enterflavor" component}}</label>' +
-    '<input class="{{CSS.FLAVORCONTROL}}" id="{{elementid}}_{{FLAVORCONTROL}}" ' +
-    ' name="{{elementid}}_{{FLAVORCONTROL}}" value="{{defaultflavor}}" />' +
-    '<button class="{{CSS.INPUTSUBMIT}}">{{get_string "insert" component}}</button>' +
-    '</div>' +
+        '<div id="{{elementid}}_{{innerform}}" class="mdl-align">' +
+            '<label for="{{elementid}}_{{URLCONTROL}}">{{get_string "enterurl" component}}</label>: ' +
+            '<input class="{{CSS.URLCONTROL}}" id="{{elementid}}_{{URLCONTROL}}" ' +
+                ' name="{{elementid}}_{{URLCONTROL}}" value="{{defaulturl}}" />' +
+            '</br>' +
+            '<label for="{{elementid}}_{{SIZECONTROL}}">{{get_string "entersize" component}}</label>: ' +
+            '<input class="{{CSS.SIZECONTROL}}" id="{{elementid}}_{{SIZECONTROL}}" ' +
+                ' name="{{elementid}}_{{SIZECONTROL}}" value="{{defaultsize}}" />' +
+            '</br>' +
+            '<button class="{{CSS.INPUTSUBMIT}} btn btn-primary">{{get_string "insert" component}}</button>' +
+        '</div>' +
     '</form>';
 
 Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.EditorPlugin, [], {
@@ -80,14 +88,14 @@ Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.Edi
     },
 
     /**
-     * Get the id of the flavor control where we store the ice cream flavor
+     * Get the id of the url control where we store the ice cream url
      *
-     * @method _getFlavorControlName
-     * @return {String} the name/id of the flavor form field
+     * @method _getUrlControlName
+     * @return {String} the name/id of the url form field
      * @private
      */
-    _getFlavorControlName: function(){
-        return(this.get('host').get('elementid') + '_' + FLAVORCONTROL);
+    _getUrlControlName: function(){
+        return(this.get('host').get('elementid') + '_' + URLCONTROL);
     },
 
     /**
@@ -98,7 +106,7 @@ Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.Edi
      */
     _displayDialogue: function(e, clickedicon) {
         e.preventDefault();
-        var width = 800;
+        var width = 900;
 
         var dialogue = this.getDialogue({
             headerContent: M.util.get_string('dialogtitle', COMPONENTNAME),
@@ -112,17 +120,16 @@ Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.Edi
         }
 
         //append buttons to iframe
-        var buttonform = this._getFormContent(clickedicon);
+        //var buttonform = this._getFormContent(clickedicon);
 
-        var description = '<section class="atto_tipnc_desc">Copie la URL del archivo o carpeta a incustrar' +
-            '<ul>Siga los siguientes pasos: ' +
-            '<li>Haga click en el botón "Compartir"</li>' +
-            '<li>Haga click en "Link Interno"</li>' +
-            '<li>Pegue más abajo la URL que se ha copiado</li>' +
-        '</ul></section>';
+        require(['atto_tipnc/body'], function(body) {
+            body.initBody();
+        });
 
-        var bodycontent =  Y.Node.create('<div>' + description + '</div>');
-        bodycontent.append(buttonform);
+        var bodycontent =  Y.Node.create('<div id="atto_tipnc_content"></div>');
+        var desccontent =  Y.Node.create('<div id="atto_tipnc_desc"></div>');
+        bodycontent.append(desccontent);
+        //bodycontent.append(buttonform);
 
         //set to bodycontent
         dialogue.set('bodyContent', bodycontent);
@@ -144,9 +151,11 @@ Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.Edi
             content = Y.Node.create(template({
                 elementid: this.get('host').get('elementid'),
                 CSS: CSS,
-                FLAVORCONTROL: FLAVORCONTROL,
+                URLCONTROL: URLCONTROL,
+                SIZECONTROL: SIZECONTROL,
                 component: COMPONENTNAME,
-                defaultflavor: this.get('defaultflavor'),
+                defaulturl: '',
+                defaultsize: 600,
                 clickedicon: clickedicon
             }));
 
@@ -166,17 +175,25 @@ Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.Edi
             focusAfterHide: null
         }).hide();
 
-        var flavorcontrol = this._form.one(SELECTORS.FLAVORCONTROL);
+        var urlcontrol = this._form.one(SELECTORS.URLCONTROL);
+        var sizecontrol = this._form.one(SELECTORS.SIZECONTROL);
 
         // If no file is there to insert, don't do it.
-        if (!flavorcontrol.get('value')){
+        if (!urlcontrol.get('value')){
             return;
         }
+        var urlinsert = urlcontrol.get('value');
 
-        var valuetoinsert = flavorcontrol.get('value');
+        var sizeinsert = '600';
+
+        // If no file is there to insert, don't do it.
+        if (sizecontrol.get('value')){
+            sizeinsert = sizecontrol.get('value');
+        }
 
         var iframe = '<iframe id="file_nextcloud_iframe" class="tipnc-iframe" ' +
-            'src="' + valuetoinsert +'" width="100%" height="800px" align="top" frameborder="0"></iframe>';
+            'src="' + urlinsert +'" width="100%" height="' + sizeinsert +'px" ' +
+            'align="top" frameborder="0"></iframe>';
 
         this.editor.focus();
         this.get('host').insertContentAtFocusPoint(iframe);
@@ -192,7 +209,7 @@ Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.Edi
             value: null
         },
 
-        defaultflavor: {
+        defaulturl: {
             value: ''
         }
     }

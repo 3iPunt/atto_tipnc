@@ -15,17 +15,41 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor integration version file.
+ * Class renderer
  *
  * @package     atto_tipnc
  * @copyright   2022 Tresipunt - Antonio Manzano <contacte@tresipunt.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+namespace atto_tipnc\output;
 
-defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2022093001;
-$plugin->release = '0.0.1';
-$plugin->requires  = 2020110300;
-$plugin->component = 'atto_tipnc';
-$plugin->maturity = MATURITY_ALPHA;
+use moodle_exception;
+use plugin_renderer_base;
+
+/**
+ * Class renderer
+ *
+ * @package     atto_tipnc
+ * @copyright   2022 Tresipunt - Antonio Manzano <contacte@tresipunt.com>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class renderer extends plugin_renderer_base {
+
+    /**
+     * Defer to template.
+     *
+     * @param body_component $component
+     *
+     * @return string html for the page
+     * @throws moodle_exception
+     */
+    public function render_body_component(body_component $component): string {
+        $data = $component->export_for_template($this);
+        return parent::render_from_template('atto_tipnc/body_component', $data);
+    }
+
+
+
+}

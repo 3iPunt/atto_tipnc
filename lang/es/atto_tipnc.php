@@ -28,3 +28,13 @@ $string['settings'] = 'Configuration';
 $string['dialogtitle'] = 'Incrustar archivo NextCloud en iFrame';
 $string['enterflavor'] = 'URL archivo NextCloud';
 $string['insert'] = 'Incrustar';
+$string['instructions'] = 'Copie la URL del archivo o carpeta a incustrar
+        <p>Siga los siguientes pasos:</p>
+        <ol>
+            <li>Haga click en el botón "Compartir"</li>
+            <li>Haga click en "Link Interno"</li>
+            <li>Pegue la URL que se ha copiado</li>
+        </ol>';
+$string['url_button'] = 'Ver en NextCloud';
+$string['enterurl'] = 'Pegue la URL';
+$string['entersize'] = 'Tamaño de la ventana (Ej. 600)';

@@ -15,17 +15,48 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor integration version file.
+ * Class body_component
  *
  * @package     atto_tipnc
  * @copyright   2022 Tresipunt - Antonio Manzano <contacte@tresipunt.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+namespace atto_tipnc\output;
 
-$plugin->version   = 2022093001;
-$plugin->release = '0.0.1';
-$plugin->requires  = 2020110300;
-$plugin->component = 'atto_tipnc';
-$plugin->maturity = MATURITY_ALPHA;
+use renderable;
+use renderer_base;
+use stdClass;
+use templatable;
+
+defined('MOODLE_INTERNAL') || die;
+
+/**
+ * Class atto_tipnc
+ *
+ * @package     body_component
+ * @copyright   2022 Tresipunt
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class body_component implements renderable, templatable {
+
+    /**
+     * board_page constructor.
+     *
+     */
+    public function __construct() {
+    }
+
+    /**
+     * Export for template
+     *
+     * @param renderer_base $output
+     * @return false|stdClass|string
+     */
+    public function export_for_template(renderer_base $output) {
+
+        $data = new stdClass();
+        $data->url = 'https://nextcloud.dd.3ip.eu/apps/files/';
+        return $data;
+    }
+}

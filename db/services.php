@@ -15,17 +15,31 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor integration version file.
- *
- * @package     atto_tipnc
- * @copyright   2022 Tresipunt - Antonio Manzano <contacte@tresipunt.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    atto_tipnc
+ * @copyright  2022 Tresipunt - Antonio Manzano <contacte@tresipunt.com>
  */
+
+
+use atto_tipnc\external\body_external;
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2022093001;
-$plugin->release = '0.0.1';
-$plugin->requires  = 2020110300;
-$plugin->component = 'atto_tipnc';
-$plugin->maturity = MATURITY_ALPHA;
+$functions = [
+    'atto_tipnc_get_body' => [
+        'classname' => body_external::class,
+        'methodname' => 'get_body',
+        'description' => 'Get template body for modal in Atto Editor',
+        'type' => 'read',
+        'ajax' => true,
+        'loginrequired' => true
+    ],
+];
+$services = [
+    'atto_tipnc' => [
+        'functions' => [
+            'atto_tipnc_get_body',
+        ],
+        'restrictedusers' => 0,
+        'enabled' => 1
+    ]
+];

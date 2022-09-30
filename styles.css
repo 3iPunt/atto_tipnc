@@ -1,3 +1,66 @@
-.atto_tipnc_desc {
-    padding: 20px;
+#atto_tipnc_content #atto_tipnc_desc {
+    padding: 0 10px;
+    width: 100%;
 }
+
+div#atto_tipnc_content {
+    display: flex;
+    flex-direction: row;
+}
+
+#atto_tipnc_content .atto_form div#id_introeditor_ {
+    text-align: left;
+    margin-left: 30px;
+}
+
+#atto_tipnc_content form.atto_form {
+    padding: 0;
+    width: 50%;
+    margin-right: 30px;
+}
+
+input#id_introeditor_tipnc_url {
+    width: 100%;
+    margin: -3px 0 9px 0;
+}
+
+input#id_introeditor_tipnc_size {
+    width: 100%;
+    margin: -3px 0 9px 0;
+}
+
+#atto_tipnc_content  #file_nextcloud_iframe {
+    position: relative;
+    top: -147px;
+    border: 2px solid #ebebeb;
+}
+
+#atto_tipnc_content .hide_header {
+    background-color: white;
+    height: 85px;
+    position: relative;
+    top: -62px;
+    z-index: 10;
+}
+
+#atto_tipnc_content div#atto_tipnc-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#atto_tipnc_content .atto_tipnc_header {
+    width: 100%;
+    display: flex;
+    background-color: white;
+    z-index: 222;
+}
+
+#atto_tipnc_content .atto_tipnc_header section#atto_tipnc {
+    width: 40%;
+}
+
+#atto_tipnc_content .atto_tipnc_iframe {
+    height: 400px;
+}
+
