@@ -24,6 +24,7 @@
 
 namespace atto_tipnc\output;
 
+use dml_exception;
 use renderable;
 use renderer_base;
 use stdClass;
@@ -52,11 +53,12 @@ class body_component implements renderable, templatable {
      *
      * @param renderer_base $output
      * @return false|stdClass|string
+     * @throws dml_exception
      */
     public function export_for_template(renderer_base $output) {
 
         $data = new stdClass();
-        $data->url = 'https://nextcloud.dd.3ip.eu/apps/files/';
+        $data->url = get_config('atto_tipnc', 'host_nextcloud');
         return $data;
     }
 }

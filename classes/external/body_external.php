@@ -22,6 +22,7 @@
 
 namespace atto_tipnc\external;
 
+use dml_exception;
 use external_api;
 use external_function_parameters;
 use external_single_structure;
@@ -46,12 +47,13 @@ class body_external extends external_api {
     /**
      *
      * @return array
+     * @throws dml_exception
      */
     public static function get_body(): array {
         return [
             'success' => true,
             'error' => '',
-            'url' => 'https://nextcloud.dd.3ip.eu/apps/files/'
+            'url' => get_config('atto_tipnc', 'host_nextcloud')
         ];
     }
 

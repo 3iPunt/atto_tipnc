@@ -38,3 +38,5 @@ $string['instructions'] = 'Copy the URL of the file or folder to embed.
 $string['url_button'] = 'View in NextCloud';
 $string['enterurl'] = 'Paste the URL';
 $string['entersize'] = 'Windows Size (Ex. 600)';
+$string['host_nextcloud'] = 'Domain NextCloud';
+$string['host_nextcloud_desc'] = 'NextCloud domain allowed in the URL. Ex: https://nextcloud.dd.3ip.eu';

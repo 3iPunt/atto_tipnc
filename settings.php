@@ -33,5 +33,8 @@ $settings = new admin_settingpage('atto_tipnc_settings',
 
 if ($ADMIN->fulltree) {
 
+    $settings->add(new admin_setting_configtext('atto_tipnc/host_nextcloud',
+        get_string('host_nextcloud', 'atto_tipnc'),
+        get_string('host_nextcloud_desc', 'atto_tipnc'), 'https://nextcloud.dd.3ip.eu'));
 
 }
