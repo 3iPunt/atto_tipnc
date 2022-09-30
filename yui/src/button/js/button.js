@@ -192,7 +192,8 @@ Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.Edi
 
         var btnstr = M.util.get_string('url_button', COMPONENTNAME)
 
-        var iframe = '<div id="file_url_button" data-region="file_url">' +
+        var iframe = '<div class="atto_tipnc_iframe_set">' +
+            '<div id="file_url_button" data-region="file_url">' +
             '<a href="' + urlinsert +'"  class="btn btn-sm btn-secondary" target="_blank">' +
             btnstr +
             '</a>' +
@@ -201,7 +202,8 @@ Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.Edi
         iframe += '<div class="hide_header">' +
             '</div><iframe id="file_nextcloud_iframe" class="tipnc-iframe" ' +
             'src="' + urlinsert +'" width="100%" height="' + sizeinsert +'px" ' +
-            'align="top" frameborder="0"></iframe>';
+            'align="top" frameborder="0"></iframe>' +
+            '</div>';
 
         this.editor.focus();
         this.get('host').insertContentAtFocusPoint(iframe);
