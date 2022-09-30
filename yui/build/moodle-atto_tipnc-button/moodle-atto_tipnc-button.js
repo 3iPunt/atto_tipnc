@@ -120,16 +120,16 @@ Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.Edi
         }
 
         //append buttons to iframe
-        //var buttonform = this._getFormContent(clickedicon);
+        var buttonform = this._getFormContent(clickedicon);
+        var bodycontent =  Y.Node.create('<div id="atto_tipnc_content"></div>');
+        var desccontent =  Y.Node.create('<div id="atto_tipnc_desc"></div>');
 
         require(['atto_tipnc/body'], function(body) {
             body.initBody();
         });
 
-        var bodycontent =  Y.Node.create('<div id="atto_tipnc_content"></div>');
-        var desccontent =  Y.Node.create('<div id="atto_tipnc_desc"></div>');
         bodycontent.append(desccontent);
-        //bodycontent.append(buttonform);
+        bodycontent.append(buttonform);
 
         //set to bodycontent
         dialogue.set('bodyContent', bodycontent);
@@ -191,7 +191,16 @@ Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.Edi
             sizeinsert = sizecontrol.get('value');
         }
 
-        var iframe = '<iframe id="file_nextcloud_iframe" class="tipnc-iframe" ' +
+        var btnstr = M.util.get_string('url_button', COMPONENTNAME)
+
+        var iframe = '<div id="file_url_button" data-region="file_url">' +
+            '<a href="' + urlinsert +'"  class="btn btn-sm btn-secondary" target="_blank">' +
+            btnstr +
+            '</a>' +
+            '</div>';
+
+        iframe += '<div class="hide_header">' +
+            '</div><iframe id="file_nextcloud_iframe" class="tipnc-iframe" ' +
             'src="' + urlinsert +'" width="100%" height="' + sizeinsert +'px" ' +
             'align="top" frameborder="0"></iframe>';
 

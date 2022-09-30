@@ -53,7 +53,8 @@ define([
 
             let modeldialogue = $('.moodle-dialogue');
 
-            modeldialogue.css('top', '350px');
+            modeldialogue.css('top', '70px');
+            modeldialogue.css('position', 'fixed');
 
             let request = {
                 methodname: SERVICES.BODY,
@@ -66,6 +67,49 @@ define([
                     identifier.append(html);
                 });
             }).fail(Notification.exception);
+
+            var stringsPromise = Str.get_strings([
+                {
+                    key:        'dialogtitle',
+                    component:  'atto_tipnc'
+                },
+                {
+                    key:        'enterurl',
+                    component:  'atto_tipnc'
+                },
+                {
+                    key:        'entersize',
+                    component:  'atto_tipnc'
+                },
+                {
+                    key:        'insert',
+                    component:  'atto_tipnc'
+                }
+            ]);
+
+            $.when(stringsPromise).then(function(strings) {
+                let title = $('.moodle-dialogue-hd');
+                title.text(strings[0]);
+
+                $('form.atto_form label').each(function(){
+                    let $label = $(this);
+                    if ($label.text() === '[[enterurl,atto_tipnc]]') {
+                        $label.text(strings[1]);
+                    }
+                    if ($label.text() === '[[entersize,atto_tipnc]]') {
+                        $label.text(strings[2]);
+                    }
+                });
+
+                let insert = $('.atto_media_urlentrysubmit');
+                insert.text(strings[3]);
+
+                let content = $('#atto_tipnc_content');
+                content.show();
+                content.css('display', 'flex');
+
+            }).fail(Notification.exception);
+
         }
 
         /** @type {jQuery} The jQuery node for the region. */
