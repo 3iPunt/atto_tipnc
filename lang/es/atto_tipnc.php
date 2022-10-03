@@ -23,7 +23,7 @@
  */
 
 $string['pluginname'] = 'Atto iFrame NextCloud';
-$string['settings'] = 'Configuration';
+$string['settings'] = 'Configuración';
 
 $string['dialogtitle'] = 'Incrustar archivo NextCloud en iFrame';
 $string['enterflavor'] = 'URL archivo NextCloud';
@@ -37,6 +37,7 @@ $string['instructions'] = 'Copie la URL del archivo o carpeta a incustrar
         </ol>';
 $string['url_button'] = 'Ver en NextCloud';
 $string['enterurl'] = 'Pegue la URL';
-$string['entersize'] = 'Tamaño de la ventana (Ej. 600)';
+$string['entersize'] = 'Altura de la ventana (Ej. 600)';
 $string['host_nextcloud'] = 'Dominio NextCloud';
 $string['host_nextcloud_desc'] = 'Dominio del NextCloud permitido en la URL. Ej: https://nextcloud.dd.3ip.eu';
+$string['nc_desc'] = 'En algunas ocasiones, NextCloud tarda en mostrarse, tenga paciencia.';

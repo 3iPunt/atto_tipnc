@@ -67,3 +67,19 @@ div#atto_tipnc_content {
     height: 400px;
 }
 
+#atto_tipnc-body #atto_tipnc .notice_nc i.fa.fa-exclamation-triangle {
+    color: #ff9e00;
+}
+
+#atto_tipnc-body #atto_tipnc .notice_nc span {
+    font-size: 10px;
+    color: grey;
+    font-style: italic;
+}
+
+#atto_tipnc-body #atto_tipnc .notice_nc {
+    position: relative;
+    top: 21px;
+    left: 10px;
+}
+
