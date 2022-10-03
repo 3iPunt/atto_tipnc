@@ -43,4 +43,4 @@ to complete the installation from the command line.
 
 Go to the URL:
 
-    {your/moodle/dirroot}/admin/settings.php?section=xxxx
+    {your/moodle/dirroot}/admin/settings.php?section=atto_tipnc_settings
