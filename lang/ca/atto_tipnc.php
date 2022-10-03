@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'atto_tipnc', language 'en'.
+ * Strings for component 'atto_tipnc', language 'ca'.
  *
  * @package     atto_tipnc
  * @copyright   2022 Tresipunt - Antonio Manzano <contacte@tresipunt.com>
@@ -23,21 +23,21 @@
  */
 
 $string['pluginname'] = 'Atto iFrame NextCloud';
-$string['settings'] = 'Configuration';
+$string['settings'] = 'Configuració';
 
-$string['dialogtitle'] = 'Incrustar archivo NextCloud en iFrame';
-$string['enterflavor'] = 'URL archivo NextCloud';
-$string['insert'] = 'Incrustar';
-$string['instructions'] = 'Copy the URL of the file or folder to embed.
-            <p>Follow these steps:</p>
-            <ol>
-                <li>Click the "Share" button</li>
-                <li>Click on "Internal Link"</li>
-                <li>Paste the copied URL</li>
-            </ol>';
-$string['url_button'] = 'View in NextCloud';
-$string['enterurl'] = 'Paste the URL';
-$string['entersize'] = 'Windows Height (Ex. 600)';
-$string['host_nextcloud'] = 'Domain NextCloud';
-$string['host_nextcloud_desc'] = 'NextCloud domain allowed in the URL. Ex: https://nextcloud.dd.3ip.eu';
-$string['nc_desc'] = 'En algunas ocasiones, NextCloud tarda en mostrarse, tenga paciencia';
+$string['dialogtitle'] = 'Incrusta fitxer NextCloud a iFrame';
+$string['enterflavor'] = 'URL fitxer NextCloud';
+$string['insert'] = 'Incrusta';
+$string['instructions'] = "Copieu la URL del fitxer o carpeta a incustrar
+        <p>Seguiu els passos següents:</p>
+        <ol>
+            <li>Feu clic al botó 'Compartir'</li>
+            <li>Feu clic a 'Link Intern'</li>
+            <li>Enganxeu la URL que s'ha copiat</li>
+        </ol>";
+$string['url_button'] = 'Veure a NextCloud';
+$string['enterurl'] = 'Enganxeu la URL';
+$string['entersize'] = 'Alçada de la finestra (Ex. 600)';
+$string['host_nextcloud'] = 'Domini NextCloud';
+$string['host_nextcloud_desc'] = 'Domini del NextCloud permès a la URL. Ex: https://nextcloud.dd.3ip.eu';
+$string['nc_desc'] = 'De vegades, NextCloud triga a mostrar-se, tingui paciència.';
