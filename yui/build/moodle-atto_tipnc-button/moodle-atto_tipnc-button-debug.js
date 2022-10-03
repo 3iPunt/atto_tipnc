@@ -196,7 +196,7 @@ Y.namespace('M.atto_tipnc').Button = Y.Base.create('button', Y.M.editor_atto.Edi
 
         var iframe = '<div class="atto_tipnc_iframe_set">' +
             '<div id="file_url_button" data-region="file_url">' +
-            '<a href="' + urlinsert +'"  class="btn btn-sm btn-secondary" target="_blank">' +
+            '<a href="' + urlinsert +'"  class="btn btn-sm btn-outline-secondary" target="_blank">' +
             btnstr +
             '</a>' +
             '</div>';
