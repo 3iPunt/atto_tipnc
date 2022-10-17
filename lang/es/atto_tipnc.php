@@ -33,7 +33,8 @@ $string['instructions'] = 'Copie la URL del archivo o carpeta a incustrar
         <ol>
             <li>Haga click en el botón "Compartir"</li>
             <li>Haga click en "Link Interno"</li>
-            <li>Pegue la URL que se ha copiado</li>
+            <li>Si quieres mostrar el documento de Nextcloud directamente en este recurso pégala en el campo de texto de la derecha</li>
+            <li>Si quieres utilizar solo el enlace cierra esta ventana y pega el enlace copiado directamente en el editor de texto</li>
         </ol>';
 $string['url_button'] = 'Ver en NextCloud';
 $string['enterurl'] = 'Pegue la URL';
