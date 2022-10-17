@@ -33,7 +33,8 @@ $string['instructions'] = 'Copy the URL of the file or folder to embed.
             <ol>
                 <li>Click the "Share" button</li>
                 <li>Click on "Internal Link"</li>
-                <li>Paste the copied URL</li>
+                <li>If you want to show the Nextcloud document directly in a quest resource, paste it in the text field of the dreta</li>
+                <li>If you want to use only the link, do this fine and paste the link, copy it directly into the text editor</li>
             </ol>';
 $string['url_button'] = 'View in NextCloud';
 $string['enterurl'] = 'Paste the URL';

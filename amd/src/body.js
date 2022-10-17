@@ -89,7 +89,13 @@ define([
 
             $.when(stringsPromise).then(function(strings) {
                 let title = $('.moodle-dialogue-hd');
-                title.text(strings[0]);
+                title.css('color', 'white');
+
+                let titlehtml = '<h2 id="atto_tipnc-title_modal_yui">' + strings[0] + '</h2>';
+
+                let cont = $('.moodle-dialogue-base[aria-hidden="false"] .moodle-dialogue-bd');
+
+                cont.append(titlehtml);
 
                 $('form.atto_form label').each(function(){
                     let $label = $(this);

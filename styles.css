@@ -83,3 +83,13 @@ div#atto_tipnc_content {
     left: 10px;
 }
 
+h2#atto_tipnc-title_modal_yui {
+    position: absolute;
+    top: 17px;
+    left: 18px;
+}
+
+section#atto_tipnc {
+    font-size: 13px;
+}
+
