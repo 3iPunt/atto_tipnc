@@ -33,8 +33,8 @@ $string['instructions'] = "Copieu la URL del fitxer o carpeta a incustrar
         <ol>
             <li>Feu clic al botó 'Compartir'</li>
             <li>Feu clic a 'Link Intern'</li>
-            <li>Si vols mostrar el document de Nextcloud directament en aquest recurs pega-la en el camp de text de la dreta</li>
-            <li>Si vols utilitzar solament l'enllaç tanca aquesta finestra i pega l'enllaç copiat directament en l'editor de text</li>
+            <li>Si vols mostrar el document de Nextcloud perquè s’obri directament en aquest recurs, pega l’enllaç en el camp de text de la dreta</li>
+            <li>Si només el vols enllaçar, tanca aquesta finestra (x) i pega l'enllaç directament en el text de la pàgina</li>
         </ol>";
 $string['url_button'] = 'Veure a NextCloud';
 $string['enterurl'] = 'Enganxeu la URL';
